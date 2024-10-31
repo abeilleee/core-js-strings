@@ -181,8 +181,15 @@ function removeFirstOccurrences(str, value) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  let result;
+  if (str.includes(value)) {
+    const occur = str.lastIndexOf(value);
+    result = str.slice(0, occur) + str.slice(occur + value.length);
+  } else {
+    result = str;
+  }
+  return result;
 }
 
 /**
@@ -197,8 +204,16 @@ function removeLastOccurrences(/* str, value */) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(/* str */) {
-  throw new Error('Not implemented');
+function sumOfCodes(str) {
+  let result;
+  if (str) {
+    result = str
+      .split('')
+      .reduce((accum, elem) => accum + elem.charCodeAt(), 0);
+  } else {
+    result = 0;
+  }
+  return result;
 }
 
 /**
@@ -212,8 +227,8 @@ function sumOfCodes(/* str */) {
  *   startsWith('Hello World', 'World') => false
  *   startsWith('Hello World', 'Hello') => true
  */
-function startsWith(/* str, substr */) {
-  throw new Error('Not implemented');
+function startsWith(str, substr) {
+  return str.startsWith(substr);
 }
 
 /**
